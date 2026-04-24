@@ -1,0 +1,177 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Lato:wght@300;400;700&display=swap");
+@import "react-quill-new/dist/quill.snow.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Lato", system-ui, sans-serif;
+  --font-display: "Montserrat", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+}
+
+:root {
+  --radius: 1rem;
+
+  --background: oklch(0.985 0.005 240);
+  --foreground: oklch(0.18 0.04 255);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.04 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 255);
+
+  /* Deep royal medical blue (matches Dr. Ambekar reference) */
+  --primary: oklch(0.42 0.18 258);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --primary-glow: oklch(0.58 0.2 255);
+  --primary-deep: oklch(0.32 0.16 260);
+
+  --secondary: oklch(0.955 0.018 250);
+  --secondary-foreground: oklch(0.28 0.1 258);
+
+  --muted: oklch(0.965 0.012 250);
+  --muted-foreground: oklch(0.48 0.04 255);
+
+  --accent: oklch(0.93 0.045 250);
+  --accent-foreground: oklch(0.32 0.14 258);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --success: oklch(0.62 0.16 155);
+  --success-foreground: oklch(0.99 0 0);
+
+  --warning: oklch(0.78 0.15 80);
+  --warning-foreground: oklch(0.25 0.05 80);
+
+  --border: oklch(0.91 0.018 250);
+  --input: oklch(0.91 0.018 250);
+  --ring: oklch(0.42 0.18 258);
+
+  --sidebar: oklch(0.99 0.005 245);
+  --sidebar-foreground: oklch(0.28 0.06 258);
+  --sidebar-accent: oklch(0.94 0.04 250);
+  --sidebar-accent-foreground: oklch(0.32 0.14 258);
+  --sidebar-border: oklch(0.91 0.018 250);
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    oklch(0.42 0.18 258) 0%,
+    oklch(0.52 0.2 252) 100%
+  );
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.32 0.16 260) 0%,
+    oklch(0.45 0.2 255) 50%,
+    oklch(0.58 0.2 248) 100%
+  );
+  --gradient-soft: linear-gradient(
+    135deg,
+    oklch(0.97 0.015 250) 0%,
+    oklch(0.93 0.04 250) 100%
+  );
+  --shadow-card: 0 4px 20px -8px oklch(0.42 0.18 258 / 0.18);
+  --shadow-elegant: 0 12px 40px -12px oklch(0.42 0.18 258 / 0.3);
+  --shadow-glow: 0 0 40px oklch(0.58 0.2 255 / 0.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gradient-soft {
+    background: var(--gradient-soft);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Quill editor theming */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border-color: var(--color-border);
+}
+.ql-toolbar.ql-snow {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  background: var(--color-muted);
+}
+.ql-container.ql-snow {
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  font-family: var(--font-sans);
+  min-height: 220px;
+}
